@@ -6,4 +6,4 @@
 **Thanks, Abdelrahman-BE**
 
 ---
-![Design preview for the Profile card component coding challenge](./wearther.jpg)
+![Design preview for the Profile card component coding challenge](./weather.jpg)
