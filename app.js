@@ -36,7 +36,7 @@ window.addEventListener("load", () => {
             //FORUMULA For Celsius
             let Farenheit = (apiResult.main.temp * (9 / 5)) + 32;
             //Set Icon
-            setIcons("PARTLY_CLOUDY_DAY", document.querySelector(".icon"));
+            setIcons(renameIcon(apiResult.weather[0].icon), document.querySelector(".icon"));
             //Change temperature to Clesius/Farenheit
             temperatureSection.addEventListener('click', () => {
                 if(temperatureSpan.textContent === "F"){
@@ -56,5 +56,37 @@ window.addEventListener("load", () => {
         const currentIcon = icon.replace(/-/g, "_").toUpperCase();
         skycons.play();
         return skycons.set(iconID, Skycons[currentIcon]);
+    }
+    function renameIcon(icon) {
+        switch (icon) {
+            case "01d":
+                return "CLEAR_DAY";
+            case "01n":
+                return "CLEAR_NIGHT";
+            case "02d":
+                return "PARTLY_CLOUDY_DAY";
+            case "02n":
+                return "PARTLY_CLOUDY_NIGHT";
+            case "03d":
+            case "03n":
+            case "04d":
+            case "04n":
+                return "CLOUDY";
+            case "09d":
+            case "09n":
+            case "10d":
+            case "10n":
+            case "11n":
+            case "11d":
+                return "RAIN";
+            case "13d":
+            case "13n":
+                return "SNOW";
+            case "50d":
+            case "50n":
+                return "FOG";
+            default:
+                return "CLEAR_DAY";
+        }
     }
 });
